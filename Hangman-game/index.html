@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hangman Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      padding-top: 10%;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    #word-display {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    #chances {
+      color: #777;
+    }
+
+    #guess-input {
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    #guess-button {
+      padding: 8px 15px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #guess-button:hover {
+      background-color: #0056b3;
+    }
+
+    #message {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hangman Game</h1>
+  <p>Guess the word! HINT: word is a name of a fruit</p>
+  <p id="word-display"></p>
+  <p id="chances">Chances: </p>
+  <input type="text" id="guess-input" placeholder="Enter a letter to guess" />
+  <button id="guess-button">Guess</button>
+  <p id="message"></p>
+
+  <script>
+    const words = [
+      'apple', 'banana', 'mango', 'strawberry',
+      'orange', 'grape', 'pineapple', 'apricot', 'lemon',
+      'coconut', 'watermelon', 'cherry', 'papaya',
+      'berry', 'peach', 'lychee', 'muskmelon'
+    ];
+
+    let word = '';
+    let letterGuessed = '';
+    let chances = 0;
+
+    function getRandomWord() {
+      const randomIndex = Math.floor(Math.random() * words.length);
+      return words[randomIndex];
+    }
+
+    function initializeGame() {
+      word = getRandomWord();
+      chances = word.length + 2;
+      letterGuessed = '';
+      document.getElementById('chances').textContent = `Chances: ${chances}`;
+
+      const wordDisplay = document.getElementById('word-display');
+      wordDisplay.textContent = '';
+
+      for (let i = 0; i < word.length; i++) {
+        wordDisplay.innerHTML += `<span id="char-${i}">_</span> `;
+      }
+
+      document.getElementById('message').textContent = '';
+      document.getElementById('guess-input').value = '';
+      document.getElementById('guess-button').disabled = false;
+    }
+
+    function guessLetter() {
+      const guessInput = document.getElementById('guess-input');
+      const guess = guessInput.value.trim().toLowerCase();
+
+      if (!guess.match(/^[a-z]$/)) {
+        document.getElementById('message').textContent = 'Enter only a letter!';
+        return;
+      }
+
+      if (letterGuessed.includes(guess)) {
+        document.getElementById('message').textContent = 'You have already guessed that letter!';
+        return;
+      }
+
+      letterGuessed += guess;
+
+      const wordDisplay = document.getElementById('word-display');
+      let correct = 0;
+
+      for (let i = 0; i < word.length; i++) {
+        const char = word[i];
+
+        if (letterGuessed.includes(char)) {
+          document.getElementById(`char-${i}`).textContent = char;
+          correct++;
+        }
+      }
+
+      if (correct === word.length) {
+        document.getElementById('message').textContent = `Congratulations, You won! The word is: ${word}`;
+        document.getElementById('guess-button').disabled = true;
+      } else {
+        chances--;
+        document.getElementById('chances').textContent = `Chances: ${chances}`;
+
+        if (chances === 0) {
+          document.getElementById('message').textContent = `You lost! The word was ${word}`;
+          document.getElementById('guess-button').disabled = true;
+        }
+      }
+
+      guessInput.value = '';
+    }
+
+    initializeGame();
+
+    document.getElementById('guess-button').addEventListener('click', guessLetter);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Management</title>
+    <link rel="stylesheet" type="text/css" href="public/payments.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Payment Management</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#payments">Payments</a></li>
+            <li><a href="#customers">Customers</a></li>
+        </ul>
+    </nav>
+    <section id="payments">
+        <h2>Payments</h2>
+        <div id="viewPayments">
+            <span>
+                <b> View payments</b>
+                <pre></pre>
+                <button id="viewPaymentsBtn">View All Payment</button>
+            </span>
+        </div>
+        <div id="viewPaymentsnew">
+        </div>
+        <div id="viewSpecificPayment">
+            <b> View Specific payments</b>
+            <pre></pre>
+            <button id="viewSpecificPaymentBtn">View Specific Payment</button>
+            <input type="text" id="viewPaymentId" placeholder="Enter Payment ID">
+        </div>
+        <div id="viewSpecificPaymentnew"></div>
+        <div id="deletePayment">
+            <b> Delete Specific payments</b>
+            <pre></pre>
+            <button id="deletePaymentBtn">Delete Payment</button>
+            <input type="text" id="deletePaymentId" placeholder="Enter Payment ID">
+        </div>
+        <div id="createPayment">
+            <b> Create payments</b>
+            <pre></pre>
+            <button id="createPaymentBtn">Create Payment</button>
+        </div>
+        <div id="updatePayment">
+            <b> Update payments</b>
+            <pre></pre>
+            <button id="updatePaymentBtn">Update Payment</button>
+            <input type="text" id="UpdatePaymentId" placeholder="Enter Payment ID">
+        </div>
+        <div id="updatePaymentnew" style="display: none;">
+            <div class="payment-update-form">
+                <h2>Create/Update Payment</h2>
+                <form id="createForm">
+                    <label for="createCustomerId">Customer ID:</label>
+                    <input type="text" id="createCustomerId" required><br>
+
+                    <label for="createAmount">Amount:</label>
+                    <input type="number" id="createAmount" required><br>
+
+                    <label for="createPaymentDate">Payment Date:</label>
+                    <input type="date" id="createPaymentDate" required><br>
+
+                    <label for="createPaymentMethod">Payment Method:</label>
+                    <input type="text" id="createPaymentMethod" required><br>
+
+                    <label for="createStatus">Status:</label>
+                    <input type="text" id="createStatus" required><br>
+
+                    <label for="createInvoiceNumber">Invoice Number:</label>
+                    <input type="text" id="createInvoiceNumber" required><br>
+
+                    <label for="createTransactionId">Transaction ID:</label>
+                    <input type="text" id="createTransactionId" required><br>
+
+                    <label for="createCardType">Card Type:</label>
+                    <input type="text" id="createCardType" required><br>
+
+                    <label for="createCardNumber">Card Number:</label>
+                    <input type="text" id="createCardNumber" required><br>
+                </form>
+            </div>
+            <button id="CreateUpdateback" onclick="backing3()">back</button>
+        </div>
+    </section>
+    <section id="customers">
+        <h2>Customers</h2>
+
+        <div id="viewCustomers">
+            <span>
+                <b> View Customers</b>
+                <pre></pre>
+                <button id="viewCustomersBtn">View All Customers</button>
+            </span>
+        </div>
+
+        <div id="viewCustomersnew">
+        </div>
+
+        <div id="viewSpecificCustomer">
+            <b> View Specific Customer</b>
+            <pre></pre>
+            <button id="viewSpecificCustomerBtn">View Specific Customer</button>
+            <input type="text" id="viewCustomerId" placeholder="Enter Customer ID">
+        </div>
+
+        <div id="viewSpecificCustomernew"></div>
+
+        <div id="deleteCustomer">
+            <b> Delete Specific Customer</b>
+            <pre></pre>
+            <button id="deleteCustomerBtn">Delete Customer</button>
+            <input type="text" id="deleteCustomerId" placeholder="Enter Customer ID">
+        </div>
+        <div id="createCustomer">
+            <b> Create customer</b>
+            <pre></pre>
+            <button id="createCustomerBtn">Create Customer</button>
+        </div>
+        <div id="updateCustomer">
+            <b> Update Customer</b>
+            <pre></pre>
+            <button id="updateCustomerBtn">Update Customer</button>
+            <input type="text" id="UpdateCustomerId" placeholder="Enter Customer ID">
+        </div>
+        <div id="updateCustomernew" style="display: none;">
+            <div class="Customer-update-form">
+                <h2>Create/Update Customer</h2>
+                <form id="CustomercreateForm">
+                    <label for="createCustomerIdnew">Customer ID:</label>
+                    <input type="text" id="createCustomerIdnew" required><br>
+
+                    <label for="createName">Customer Name</label>
+                    <input type="text" id="createName" required><br>
+
+                    <label for="createAddress">Customer Address</label>
+                    <input type="text" id="createAddress" required><br>
+
+                    <label for="createPhone">Customer Phone</label>
+                    <input type="number" id="createPhone" required><br>
+                </form>
+                <button id="CreateUpdateback" onclick="custbacking2()">back</button>
+            </div>
+        </div>
+    </section>
+    <script src="public/payments.js"></script>
+    <script src="public/customer.js"></script>
+</body>
+
+</html>

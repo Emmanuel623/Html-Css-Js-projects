@@ -1,0 +1,122 @@
+/* Add your styles here */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(243, 49, 49);
+}
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* Add more styles as needed */
+
+
+/* Apply styles to form elements */
+/* Apply styles to form elements */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    /* Light gray background color */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    /* White background color */
+}
+
+/* Apply styles to buttons */
+button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Apply specific styles to the back button */
+#backViewPayments,
+#backSpecificPayments,
+#CreateUpdateback {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Style the payment cards */
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    /* White background color */
+}
+
+/* Additional styles for layout and spacing */
+#payments {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#payments>div {
+    flex: 1;
+    margin: 10px;
+}
+
+/* Center the form in the updatePaymentnewdiv */
+.payment-update-form {
+    text-align: center;
+}
+
+/* Add hover effect to buttons */
+button:hover {
+    background-color: #0056b3;
+}
